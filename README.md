@@ -14,6 +14,5 @@ Sigma-points (states) are chosen for current state estimation based on the mean 
   In this project, the dynamics of the drone is modeled by taking linear and angular acceleration measurements from IMU as control inputs, and the drone position, orientation, and linear velocity in world frame as the state variables that are to be estimated. The velocity measured through optical flow is taken as the measurement variable for the update step. Detailed mathematical modeling is presented in the report section of this repository. 
 
 # Results and Keypoints
-Graphs
-Points about tuning
-Observations
+  The estimated state values are compared with the ground truth values captured through the VICON system. A graph overlaying the estimated and ground-truth measurements is presented below.
+The Kalman Filter has covariance paramters that require fine-tuning for best performance. The above results that are generated after inital tuning displays good performance of the filter with most of the estimated variables closely following the ground truth measurement. 
