@@ -9,9 +9,8 @@ Camera feed can be used to estimate velocity by computing optical flow. Optical 
 Though velocity estimation through optical flow is accurate enough, it's reliability is challenged while facing surfaces with poor visual features / in low-light conditions. For this project, the drone is piloted in a controlled environment such that a mat with Apriltags is always present in the camera frame, such that the optical flow output doesn't produce extreme errors. 
 
 # Unscented Kalman Filter
-Why UKF
-Tech explanation
-Implementation Steps
+While both EKF and UKF can be used for state estimation in non-linear systems, UKF is recommended for better results as the perdiction and updates are done by discretization around multiple states that are strategically chosen, rather than considering only the current state like in EKF. 
+Sigma-points (states) are chosen for current state estimation based on the mean and co-variance of state estimate in the previous time-step. The system dynamics model is discretized around these sigma points, and prediction and update steps are carried out. The predicted and updated state values are copmuted through sum of the values corresponding the sigma points weighted appropriately. 
 
 # Results and Keypoints
 Graphs
