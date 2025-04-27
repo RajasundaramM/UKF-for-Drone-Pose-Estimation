@@ -5,9 +5,8 @@ This repository contains the code and documentation for reliable drone pose esti
   This project explores the domain of reliable drone localization in GPS-denied environments. Multiple sensor modlaities such as IMU and camera are widely used to estimate a drone's position and orientation. Sensor fusion methods such as Kalman filter, Baysian filter, Particle filter etc. are traditional methods for fusing multiple sensor modalities to reliably estimate system state from noisy sensor measurements. While basic kalman filter method is widely used for state estimation in linear systems, variations of this widely used method like Extended Kalman Filter (EKF) and Unscented Kalman Filter (UKF) are shown to give much more reliable state estimates for non-linear systems. This project explores and implements UKF for estimating a drone's position, orientation and velocity from noisy velociity estimates through visual odometry on on-board camera feed, and linear acceleration and angular velocity measurements from on-board IMU. 
 
 # Velocity Estimation from camera data
-General picture
-constraints here
-implementation overview
+Camera feed can be used to estimate velocity by computing optical flow. Optical flow is computed through library functions that match distinct visual features across frames and computes pixel-wise displacement of those features. Further computations are done on this optical flow to estimate the velocity of camera and hence velocity of the drone's body. 
+Though velocity estimation through optical flow is accurate enough, it's reliability is challenged while facing surfaces with poor visual features / in low-light conditions. For this project, the drone is piloted in a controlled environment such that a mat with Apriltags is always present in the camera frame, such that the optical flow output doesn't produce extreme errors. 
 
 # Unscented Kalman Filter
 Why UKF
